@@ -1,0 +1,42 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.sami.sso",
+      "nativeLanguage": "fa"
+    },
+    "jhipsterVersion": "5.8.2",
+    "applicationType": "monolith",
+    "baseName": "sso",
+    "packageName": "com.sami.sso",
+    "packageFolder": "com/sami/sso",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "M2VjZDJkZDllODQwZTYyMDllNmE3M2Q3YjIwN2U5NjM5Y2JjZGJhZjU5YTZlMzM5YWE1OWU3OWQ4ZjU0Yjc2NDE1NmVlY2Q3NDZiNmJkOTgzMDVkMDU3MjIyYzVlMWEyYTM0NjEwZDY1MmQ1YjBkNjE0NzNlMTY1OGM3NWVmZmE=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "fa",
+    "languages": [
+      "fa",
+      "ar-ly",
+      "en"
+    ]
+  }
+}
