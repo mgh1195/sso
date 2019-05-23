@@ -82,6 +82,10 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @JsonIgnore
     private String resetKey;
 
+    @Size (min = 1 , max = 20)
+    @Column(name = "national_number" ,length  =20 )
+    private  String national_number;
+
     @Column(name = "reset_date")
     private Instant resetDate = null;
 
@@ -118,6 +122,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setNational_number(String national_number){
+        this.national_number = national_number;
+    }
+
+    public String getNational_number() {
+        return national_number;
     }
 
     public String getFirstName() {
@@ -224,6 +236,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
             "login='" + login + '\'' +
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
+            ", national_number='" + national_number + '\'' +
             ", email='" + email + '\'' +
             ", imageUrl='" + imageUrl + '\'' +
             ", activated='" + activated + '\'' +

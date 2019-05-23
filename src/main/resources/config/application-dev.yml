@@ -37,8 +37,8 @@ spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:postgresql://localhost:5432/sso
-        username: sso
-        password:
+        username: postgres
+        password: 2380223802
         hikari:
             poolName: Hikari
             auto-commit: false
@@ -55,6 +55,7 @@ spring:
             hibernate.cache.region.factory_class: io.github.jhipster.config.jcache.BeanClassLoaderAwareJCacheRegionFactory
     liquibase:
         contexts: dev
+        enabled: false
     mail:
         host: localhost
         port: 25

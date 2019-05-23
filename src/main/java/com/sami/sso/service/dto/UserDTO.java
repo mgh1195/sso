@@ -35,6 +35,9 @@ public class UserDTO {
     @Size(min = 5, max = 254)
     private String email;
 
+    @Size(min = 1 , max = 20)
+    private String national_nubmer;
+
     @Size(max = 256)
     private String imageUrl;
 
@@ -59,6 +62,7 @@ public class UserDTO {
 
     public UserDTO(User user) {
         this.id = user.getId();
+        this.national_nubmer = user.getNational_number();
         this.login = user.getLogin();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
@@ -101,6 +105,14 @@ public class UserDTO {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public void setNational_nubmer(String national_nubmer){
+        this.national_nubmer = national_nubmer;
+    }
+
+    public String getNational_nubmer() {
+        return national_nubmer;
     }
 
     public void setLastName(String lastName) {
@@ -186,6 +198,7 @@ public class UserDTO {
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
             ", email='" + email + '\'' +
+            ", national_number='" + national_nubmer + '\'' +
             ", imageUrl='" + imageUrl + '\'' +
             ", activated=" + activated +
             ", langKey='" + langKey + '\'' +
