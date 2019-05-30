@@ -87,7 +87,6 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Size (min = 10 , max = 10)
     @Column(name = "national_number" ,length  =20 )
     private  String national_number;
-    @IdAnnotation(id = national_number)
 
 
     @Column(name = "reset_date")
