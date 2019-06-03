@@ -1,5 +1,6 @@
 package com.sami.sso.domain;
 
+import com.sami.sso.IdAnnotation;
 import com.sami.sso.config.Constants;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -43,7 +44,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     @JsonIgnore
     @NotNull
-    @Size(min = 60, max = 60)
+    @Size(min = 0, max = 60)
     @Column(name = "password_hash", length = 60, nullable = false)
     private String password;
 
@@ -82,6 +83,12 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @JsonIgnore
     private String resetKey;
 
+    @IdAnnotation
+    @Size (min = 10 , max = 10)
+    @Column(name = "national_number" ,length  =10 )
+    private  String national_number;
+
+
     @Column(name = "reset_date")
     private Instant resetDate = null;
 
@@ -118,6 +125,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setNational_number(String national_number){
+        this.national_number = national_number;
+    }
+
+    public String getNational_number() {
+        return national_number;
     }
 
     public String getFirstName() {
@@ -224,6 +239,7 @@ public class User extends AbstractAuditingEntity implements Serializable {
             "login='" + login + '\'' +
             ", firstName='" + firstName + '\'' +
             ", lastName='" + lastName + '\'' +
+            ", national_number='" + national_number + '\'' +
             ", email='" + email + '\'' +
             ", imageUrl='" + imageUrl + '\'' +
             ", activated='" + activated + '\'' +

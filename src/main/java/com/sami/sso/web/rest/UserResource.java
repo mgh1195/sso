@@ -1,5 +1,6 @@
 package com.sami.sso.web.rest;
 
+import com.sami.sso.IdAnnotation;
 import com.sami.sso.config.Constants;
 import com.sami.sso.domain.User;
 import com.sami.sso.repository.UserRepository;
@@ -25,6 +26,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Size;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.*;
@@ -179,5 +181,10 @@ public class UserResource {
         log.debug("REST request to delete User: {}", login);
         userService.deleteUser(login);
         return ResponseEntity.ok().headers(HeaderUtil.createAlert( "userManagement.deleted", login)).build();
+    }
+
+    @PostMapping("/users/test")
+    public void testFunc(@Size(min= 3 , max=5) Integer s){
+
     }
 }
