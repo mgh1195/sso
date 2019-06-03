@@ -2,11 +2,18 @@ package com.sami.sso;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+import java.io.IOException;
 
 public class CheckIdValidation implements ConstraintValidator<IdAnnotation,String> {
     @Override
     public boolean isValid(String s, ConstraintValidatorContext constraintValidatorContext) {
-        int result = Integer.parseInt(s);
+        boolean strFlag = false;
+        int result = 12;
+        try {
+            result = Integer.parseInt(s);
+        }catch (Exception e){
+            strFlag = true;
+        }
         int controlDigit = result % 10;
         int flag;
         result /= 10;
@@ -15,17 +22,18 @@ public class CheckIdValidation implements ConstraintValidator<IdAnnotation,Strin
             sum += result % 10 * i;
             result /= 10;
         }
+
+
         if (sum % 11 < 2) {
             flag = sum % 11;
         } else flag = 11 - sum % 11;
 
-        boolean isValid = (flag == controlDigit);
-
-        if (!isValid) {
-            constraintValidatorContext.disableDefaultConstraintViolation();
-            constraintValidatorContext.buildConstraintViolationWithTemplate("{com.sami.sso.constraints.IdAnnotation.message}").addConstraintViolation();
-        }
-        return isValid;
+        boolean isValid = ((flag == controlDigit)&& !strFlag);
+            if (!isValid ) {
+                constraintValidatorContext.disableDefaultConstraintViolation();
+                constraintValidatorContext.buildConstraintViolationWithTemplate("{com.sami.sso.constraints.IdAnnotation.message}").addConstraintViolation();
+            }
+            return (isValid);
 
     }
 

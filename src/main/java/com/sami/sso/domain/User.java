@@ -83,9 +83,9 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @JsonIgnore
     private String resetKey;
 
-
+    @IdAnnotation
     @Size (min = 10 , max = 10)
-    @Column(name = "national_number" ,length  =20 )
+    @Column(name = "national_number" ,length  =10 )
     private  String national_number;
 
 
